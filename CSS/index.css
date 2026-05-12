@@ -1,0 +1,111 @@
+:root {
+    --brand-red: #d90429;
+    /* Aggressive, authoritative red */
+    --bg-white: #ffffff;
+    --text-black: #111111;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Hero / Header Shape */
+header {
+    position: relative;
+    height: 40vh;
+    background-color: var(--bg-white);
+    /* Creating the unique "right shape" from your theme */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 40% 100%, 0 100%);
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.logo-image {
+    height: 250px;
+    width: auto;
+    max-width: 100%;
+    z-index: 20;
+}
+
+/* Post Index Container */
+.index-container {
+    max-width: 900px;
+    margin: -50px auto 100px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.post-entry {
+    border-bottom: 2px solid #eee;
+    padding: 40px 0;
+    transition: 0.3s;
+}
+
+.post-entry:hover {
+    border-bottom-color: var(--brand-red);
+}
+
+.post-date {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--brand-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    line-height: 1.1;
+    cursor: pointer;
+}
+
+.post-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.post-excerpt {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+}
+
+/* Sidebar / Info (Anti-Grid) */
+.sidebar-info {
+    position: fixed;
+    right: 5%;
+    bottom: 50px;
+    text-align: right;
+    max-width: 200px;
+    border-right: 4px solid var(--brand-red);
+    padding-right: 20px;
+}
+
+.sidebar-info p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .logo-image {
+        height: 80px;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+
+    .sidebar-info {
+        position: static;
+        text-align: left;
+        margin-top: 50px;
+    }
+}

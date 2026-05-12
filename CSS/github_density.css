@@ -1,0 +1,78 @@
+.formula-box {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.75rem;
+    background: #f8fafc;
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin: 2.5rem 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.variable-list {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+.variable-list li {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 1rem;
+}
+
+.variable-list strong {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #111;
+    margin-right: 0.5rem;
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+    margin: 3rem 0;
+}
+
+.density-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.density-table th, 
+.density-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.density-table th {
+    background-color: #f8fafc;
+    color: #4a5568;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.density-table td {
+    color: #1a202c;
+    font-size: 1rem;
+}
+
+.density-table tr:last-child td {
+    border-bottom: none;
+}
+
+.density-table tbody tr:hover {
+    background-color: #f8fafc;
+}
