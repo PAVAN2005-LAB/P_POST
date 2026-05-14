@@ -24,6 +24,7 @@
 | 2 | [The Density Deficit](https://ppost.is-a.dev/POST/github_density.html) | Measuring the creation gap in India's developer workforce |
 | 3 | [Intentional Consumerism](https://ppost.is-a.dev/POST/intentional_consumerism.html) | Reclaiming control from algorithms to analog reliability |
 | 4 | [Reactive Memory Management Is Not Enough](https://ppost.is-a.dev/POST/chromium_memory.html) | Chromium's architecture and the case for predictive memory orchestration |
+| 5 | [India's Identity Stack](https://ppost.is-a.dev/POST/aadhaar_stack.html) | How Aadhaar authenticates 1.4 billion people at 92,500 verifications/second |
 
 
 

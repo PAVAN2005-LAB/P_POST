@@ -29,7 +29,7 @@ jobs:
       - name: 🔍 Validate HTML files exist
         run: |
           echo "=== Checking required HTML files ==="
-          files=("index.html" "contact.html" "privacy.html" "POST/india_lag.html" "POST/github_density.html" "POST/intentional_consumerism.html" "POST/chromium_memory.html")
+          files=("index.html" "contact.html" "privacy.html" "POST/india_lag.html" "POST/github_density.html" "POST/intentional_consumerism.html" "POST/chromium_memory.html" "POST/aadhaar_stack.html")
           for file in "${files[@]}"; do
             if [ -f "$file" ]; then
               echo "✅ Found: $file"
