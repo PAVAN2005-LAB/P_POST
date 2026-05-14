@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="IMAGE/ppost_logo.png" alt="PPOST Logo" width="200">
+  <img src="IMAGE/PPOST__1_-removebg-preview.png" alt="PPOST Logo" width="200">
 </p>
 
 <h1 align="center">PPOST</h1>
