@@ -7,6 +7,7 @@ function renderHeader(basePath) {
         <div class="nav-links">
             <a href="${basePath}index.html" class="nav-link">Home</a>
             <a href="${basePath}contact.html" class="nav-link">Contact</a>
+            <a href="${basePath}privacy.html" class="nav-link">Privacy</a>
         </div>
     </nav>
     `);

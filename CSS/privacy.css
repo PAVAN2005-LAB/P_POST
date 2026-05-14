@@ -1,0 +1,74 @@
+/* Privacy Policy Page Styles */
+
+.privacy-container {
+    max-width: 680px;
+    margin: 4rem auto 6rem;
+    padding: 0 20px;
+}
+
+.privacy-header {
+    margin-bottom: 3rem;
+}
+
+.privacy-header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 2.8rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+}
+
+.effective-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #718096;
+    font-weight: 500;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.policy-section {
+    margin-bottom: 2.5rem;
+}
+
+.policy-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.policy-section p {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 1rem;
+}
+
+.policy-section ul {
+    margin: 1rem 0 1.5rem 1.5rem;
+    padding: 0;
+}
+
+.policy-section li {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333333;
+    margin-bottom: 0.75rem;
+}
+
+.policy-section a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(217, 4, 41, 0.3);
+    transition: text-decoration-color 0.2s ease;
+}
+
+.policy-section a:hover {
+    text-decoration-color: var(--primary-color);
+}
