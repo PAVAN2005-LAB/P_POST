@@ -29,7 +29,7 @@ jobs:
       - name: 🔍 Validate HTML files exist
         run: |
           echo "=== Checking required HTML files ==="
-          files=("index.html" "contact.html" "privacy.html" "POST/india_lag.html" "POST/github_density.html" "POST/intentional_consumerism.html")
+          files=("index.html" "contact.html" "privacy.html" "POST/india_lag.html" "POST/github_density.html" "POST/intentional_consumerism.html" "POST/chromium_memory.html")
           for file in "${files[@]}"; do
             if [ -f "$file" ]; then
               echo "✅ Found: $file"
@@ -43,7 +43,7 @@ jobs:
       - name: 🎨 Validate CSS files exist
         run: |
           echo "=== Checking required CSS files ==="
-          files=("CSS/global.css" "CSS/index.css" "CSS/india_lag.css" "CSS/contact.css" "CSS/github_density.css" "CSS/intentional_consumerism.css" "CSS/privacy.css")
+          files=("CSS/global.css" "CSS/index.css" "CSS/india_lag.css" "CSS/contact.css" "CSS/github_density.css" "CSS/intentional_consumerism.css" "CSS/privacy.css" "CSS/chromium_memory.css")
           for file in "${files[@]}"; do
             if [ -f "$file" ]; then
               echo "✅ Found: $file"
