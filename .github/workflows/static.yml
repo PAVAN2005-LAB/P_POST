@@ -1,7 +1,9 @@
-name: Deploy static content to Pages
+name: Test & Deploy PPOST
 
 on:
   push:
+    branches: ["main", "master"]
+  pull_request:
     branches: ["main", "master"]
   workflow_dispatch:
 
@@ -15,7 +17,103 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # ========== TEST JOB ==========
+  test:
+    name: 🧪 Validate Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Check all HTML files are valid
+      - name: 🔍 Validate HTML files exist
+        run: |
+          echo "=== Checking required HTML files ==="
+          files=("index.html" "contact.html" "POST/india_lag.html" "POST/github_density.html" "POST/intentional_consumerism.html")
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✅ Found: $file"
+            else
+              echo "❌ Missing: $file"
+              exit 1
+            fi
+          done
+
+      # Check all CSS files are valid
+      - name: 🎨 Validate CSS files exist
+        run: |
+          echo "=== Checking required CSS files ==="
+          files=("CSS/global.css" "CSS/index.css" "CSS/india_lag.css" "CSS/contact.css" "CSS/github_density.css")
+          for file in "${files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✅ Found: $file"
+            else
+              echo "❌ Missing: $file"
+              exit 1
+            fi
+          done
+
+      # Check components.js exists
+      - name: ⚙️ Validate JS components
+        run: |
+          if [ -f "COMPONENTS/components.js" ]; then
+            echo "✅ Found: COMPONENTS/components.js"
+          else
+            echo "❌ Missing: COMPONENTS/components.js"
+            exit 1
+          fi
+
+      # Check for broken internal links
+      - name: 🔗 Check internal links
+        run: |
+          echo "=== Checking for broken internal links ==="
+          errors=0
+          for html_file in $(find . -name "*.html" -not -path "./.git/*"); do
+            # Extract href values pointing to local files
+            links=$(grep -oP 'href="(?!http|mailto|#)([^"]+)"' "$html_file" | grep -oP '"([^"]+)"' | tr -d '"')
+            dir=$(dirname "$html_file")
+            for link in $links; do
+              # Resolve relative path
+              target="$dir/$link"
+              if [ ! -f "$target" ]; then
+                echo "❌ Broken link in $html_file → $link"
+                errors=$((errors + 1))
+              fi
+            done
+          done
+          if [ $errors -gt 0 ]; then
+            echo "Found $errors broken links!"
+            exit 1
+          else
+            echo "✅ All internal links are valid!"
+          fi
+
+      # Check no unwanted files
+      - name: 🧹 Check for unwanted files
+        run: |
+          echo "=== Checking for unwanted files ==="
+          errors=0
+          for pattern in "*.xlsx" "~$*" "*.tmp" "*.bak"; do
+            found=$(find . -name "$pattern" -not -path "./.git/*" 2>/dev/null)
+            if [ -n "$found" ]; then
+              echo "❌ Unwanted file found: $found"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            exit 1
+          else
+            echo "✅ No unwanted files found!"
+          fi
+
+      - name: 🎉 All tests passed
+        run: echo "All validation checks passed! Ready to deploy."
+
+  # ========== DEPLOY JOB ==========
   deploy:
+    name: 🚀 Deploy to Pages
+    needs: test
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
